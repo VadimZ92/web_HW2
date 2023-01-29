@@ -8,23 +8,23 @@ jobs:
   tests:
     runs-on: ubuntu-20.04
     env:
-      SECRET_KEY: ${secrets.SECRET_KEY}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
       DEBUG: "0"
-      ALLOWED_HOSTS: ${secrets.ALLOWED_HOSTS}
-      DB_ENGINE: ${secrets.DB_ENGINE}
-      DB_HOST: ${secrets.DB_HOST}
-      DB_NAME: ${secrets.DB_NAME}
-      DB_PASSWORD: ${secrets.DB_PASSWORD}
-      DB_PORT: ${secrets.DB_PORT}
-      DB_USER: ${secrets.DB_USER}
+      ALLOWED_HOSTS: ${{secrets.ALLOWED_HOSTS}}
+      DB_ENGINE: ${{secrets.DB_ENGINE}}
+      DB_HOST: ${{secrets.DB_HOST}}
+      DB_NAME: ${{secrets.DB_NAME}}
+      DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+      DB_PORT: ${{secrets.DB_PORT}}
+      DB_USER: ${{secrets.DB_USER}}
 
     services:
       postgres_main:
         image: postgres:12
         env:
-          POSTGRES_DB: ${env.DB_NAME}
-          POSTGRES_USER: ${env.DB_USER}
-          POSTGRES_PASSWORD: ${env.DB_PASSWORD}
+          POSTGRES_DB: ${{env.DB_NAME}}
+          POSTGRES_USER: ${{env.DB_USER}}
+          POSTGRES_PASSWORD: ${{env.DB_PASSWORD}}
         ports:
           - 5432:5432
         options:
@@ -42,19 +42,19 @@ jobs:
           python-version: 3.8
 
       - name: Установка зависимостей
-        run: pip install requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Линтинг
         run: flake8 logistic/ --exclude logistic/migrations/
       - name: Тестирование
         run: python manage.py test
         env:
-          SECRET_KEY: ${env.SECRET_KEY}
+          SECRET_KEY: ${{env.SECRET_KEY}}
           DEBUG: "0"
-          ALLOWED_HOSTS: ${env.ALLOWED_HOSTS}
-          DB_ENGINE: ${env.DB_ENGINE}
-          DB_HOST: ${env.DB_HOST}
-          DB_NAME: ${senv.DB_NAME}
-          DB_PASSWORD: ${env.DB_PASSWORD}
-          DB_PORT: ${env.DB_PORT}
-          DB_USER: ${env.DB_USER}
+          ALLOWED_HOSTS: ${{env.ALLOWED_HOSTS}}
+          DB_ENGINE: ${{env.DB_ENGINE}}
+          DB_HOST: ${{env.DB_HOST}}
+          DB_NAME: ${{senv.DB_NAME}}
+          DB_PASSWORD: ${{env.DB_PASSWORD}}
+          DB_PORT: ${{env.DB_PORT}}
+          DB_USER: ${{env.DB_USER}}
