@@ -3,3 +3,6 @@ djangorestframework
 psycopg2-binary
 gunicorn
 python-decouple
+python-dotenv
+flake8
+django-filter
