@@ -15,6 +15,10 @@ class ProductViewSet(ModelViewSet):
     search_fields = ['id', 'title', 'description']
     ordering_fields = ['id', ]
 
+    # @action(['GET'], detail=False)
+    # def test(self, request):
+    #    return Response("Hello World!")
+
 
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()

@@ -58,3 +58,14 @@ jobs:
           DB_PASSWORD: ${{env.DB_PASSWORD}}
           DB_PORT: ${{env.DB_PORT}}
           DB_USER: ${{env.DB_USER}}
+
+      - name: Деплой
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          usrename: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }
+          script: bash C:\Users\hemul\Desktop\Нетология\Python in web\CICD\web_HW2\pull.sh
+
+
+@
