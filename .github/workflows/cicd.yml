@@ -65,4 +65,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           usrename: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: expect C:\Users\hemul\Desktop\Нетология\Python in web\CICD\web_HW2\pull.sh
+          script: bash C:\Users\hemul\Desktop\Нетология\Python in web\CICD\web_HW2\pull.sh
