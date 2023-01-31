@@ -1,0 +1,5 @@
+#!/bin/bash/expect -f
+spawn G:\CICD\web_HW2\pull.exp
+expect "password"
+send -- "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"
+expect eof

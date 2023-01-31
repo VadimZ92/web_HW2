@@ -3,6 +3,8 @@ from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.decorators import action
+from rest_framework.response import Response
 
 
 class ProductViewSet(ModelViewSet):
@@ -14,9 +16,9 @@ class ProductViewSet(ModelViewSet):
     search_fields = ['id', 'title', 'description']
     ordering_fields = ['id', ]
 
-    # @action(['GET'], detail=False)
-    # def test(self, request):
-    #    return Response("Hello World!")
+    @action(['GET'], detail=False)
+    def test(self, request):
+        return Response("Hello World!")
 
 
 class StockViewSet(ModelViewSet):
