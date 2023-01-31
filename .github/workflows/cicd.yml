@@ -59,7 +59,7 @@ jobs:
           DB_PORT: ${{env.DB_PORT}}
           DB_USER: ${{env.DB_USER}}
 
-      - name: Деплой
+      - name: Деплой  #Деплой
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}

@@ -14,7 +14,7 @@ class ProductViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
     filterset_fields = ["title", ]
     search_fields = ['id', 'title', 'description']
-    ordering_fields = ['id', ]
+    ordering_fields = ['id', ] # Фильтр
 
     @action(['GET'], detail=False)
     def test(self, request):
