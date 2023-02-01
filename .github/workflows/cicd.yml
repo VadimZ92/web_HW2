@@ -65,7 +65,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           usrename: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script:
-            - cd /root/new_project/web_HW2
-            - git pull origin cicd
-            - sudo systemctl restart gunicorn
+          script: expect /root/new_project/web_HW2/pull.exp
